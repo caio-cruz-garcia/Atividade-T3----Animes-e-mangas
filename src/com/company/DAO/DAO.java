@@ -1,4 +1,4 @@
 package com.company.DAO;
 
-public class DAO {
+public interface DAO {
 }
