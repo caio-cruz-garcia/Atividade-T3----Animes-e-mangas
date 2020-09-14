@@ -1,4 +1,4 @@
 package com.company.model;
 
-public class Anime {
+public class AnimeList {
 }
