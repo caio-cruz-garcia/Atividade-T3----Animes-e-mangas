@@ -1,5 +1,8 @@
 package com.company.tests;
 
+import com.company.Parser.AnimeParser;
+import com.company.model.Anime;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -18,8 +21,8 @@ public class APITests {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println("Status Code:" + response.statusCode());
-        System.out.println("Body:" + response.body());
+//        System.out.println("Status Code:" + response.statusCode());
+//        System.out.println("Body:" + response.body());
         return response.body();
     }
 
@@ -27,6 +30,9 @@ public class APITests {
         String theUrl ="https://api.jikan.moe/v3/search/anime?q=Fate/Zero&page=1";
         try {
             String output = apiTest(theUrl);
+            for (Anime anime: AnimeParser.parseJson(output)) {
+                System.out.println("Anime.:" + anime.getName());
+            }
         } catch (Exception exception) {
             exception.printStackTrace();
         }
