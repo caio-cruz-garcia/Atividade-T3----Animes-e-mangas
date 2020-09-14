@@ -18,8 +18,18 @@ public class APITests {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-//        System.out.println("Status Code:" + response.statusCode());
-//        System.out.println("Body:" + response.body());
+        System.out.println("Status Code:" + response.statusCode());
+        System.out.println("Body:" + response.body());
         return response.body();
+    }
+
+    public static void main(String[] args) throws Exception {
+        String theUrl ="https://api.jikan.moe/v3/search/anime?q=Fate/Zero&page=1";
+        try {
+            String output = apiTest(theUrl);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
     }
 }
