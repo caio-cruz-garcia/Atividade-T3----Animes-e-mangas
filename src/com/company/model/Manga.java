@@ -6,7 +6,7 @@ import com.company.enums.MangaTypes;
  * <h1>class Manga</h1>
  * The class used to represent the Manga.
  *
- * @version 1.1
+ * @version 1.2
  * @since 2020-09-14
  *
  * Version 1.0
@@ -18,6 +18,9 @@ import com.company.enums.MangaTypes;
  * Version 1.1
  *  - Added enum MangaTypes for the class
  *  - Added getter and setters for enum MangaTypes
+ *
+ * Version 1.2
+ *  - Added getAll()
  */
 
 public class Manga {
@@ -97,5 +100,14 @@ public class Manga {
 
     public void setScore(float score) {
         this.score = score;
+    }
+
+    public void getAll(){
+        System.out.println("Title.: " + name);
+        System.out.println("Poster.: " + url);
+        System.out.println("Synopsis.: " + synopsis);
+        System.out.println("Chapters.: " + chapters);
+        System.out.println("Types.: " + types);
+        System.out.println("Score.: " + score);
     }
 }
