@@ -1,9 +1,9 @@
 package com.company.DAO;
 import com.company.model.Anime;
+import com.company.model.AnimeList;
+import com.sun.source.tree.BreakTree;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 /**
@@ -19,7 +19,18 @@ import java.util.List;
  *     - Updated method getSelectAllString()
  *     - Updated method getTableName()
  *
- * @version 1.0
+ *     Version 1.1
+ *     - Updated method get()
+ *     - Updated method getAll()
+ *     - Updated method update()
+ *     - Updated method delete()
+ *     - Updated method create()
+ *     - Updated method getDeleteString()
+ *     - Updated method getUpdateString()
+ *     - Updated method getInsertString()
+ *
+ *
+ * @version 1.1
  * @since 2020-09-15
  */
 public class AnimeDAO implements DAO<Anime>, DAOFields {
@@ -41,7 +52,23 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
      */
     @Override
     public List<Anime> get(String condition) {
-        return null;
+        AnimeList animeList = new AnimeList();
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(getSelectConditionalString(getTableName()) + condition);
+            while(result.next()){
+                animeList.addAnime(new Anime(
+                        result.getString("name"),
+                        result.getString("url"),
+                        result.getString("synopsis"),
+                        result.getInt("episodes"),
+                        result.getFloat("score")));
+            }
+            result.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return animeList.getAnimes();
     }
 
     /**
@@ -50,17 +77,49 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
      */
     @Override
     public List<Anime> getAll() {
-        return null;
+        AnimeList animeList = new AnimeList();
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(getSelectAllString(getTableName()));
+            while(result.next()){
+                animeList.addAnime(new Anime(
+                        result.getString("name"),
+                        result.getString("url"),
+                        result.getString("synopsis"),
+                        result.getInt("episodes"),
+                        result.getFloat("score")));
+            }
+            result.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return animeList.getAnimes();
     }
 
     /**
      * method update()
      * Due to how the exercise works, it is not a requirement. Yet it'll be implemented for the tests
      * @param anime Anime to update
+     * @return retorno as a boolean, 0 if failed, 1 if successful
      */
     @Override
-    public void update(Anime anime) {
+    public int update(Anime anime) {
+        int retorno;
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(getUpdateString(getTableName()));
+            preparedStatement.setString(1, anime.getName());
+            preparedStatement.setString(2, anime.getUrl());
+            preparedStatement.setString(3, anime.getSynopsis());
+            preparedStatement.setInt(4, anime.getEpisodes());
+            preparedStatement.setFloat(5, anime.getScore());
+            preparedStatement.setString(6, anime.getName());
 
+            retorno = preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+            retorno = 0;
+        }
+        return retorno;
     }
 
     /**
@@ -69,8 +128,18 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
      * @param anime Anime to delete
      */
     @Override
-    public void delete(Anime anime) {
+    public int delete(Anime anime) {
+        int retorno;
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(getDeleteString(getTableName()));
+            preparedStatement.setString(1, anime.getName());
 
+            retorno = preparedStatement.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+            retorno = 0;
+        }
+        return retorno;
     }
 
     /**
@@ -79,8 +148,22 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
      * @param anime Anime to create
      */
     @Override
-    public void create(Anime anime) {
+    public int create(Anime anime) {
+        int retorno;
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(getInsertString(getTableName()));
+            preparedStatement.setString(1, anime.getName());
+            preparedStatement.setString(2, anime.getUrl());
+            preparedStatement.setString(3, anime.getSynopsis());
+            preparedStatement.setInt(4, anime.getEpisodes());
+            preparedStatement.setFloat(5, anime.getScore());
 
+            retorno = preparedStatement.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+            retorno = 0;
+        }
+        return retorno;
     }
 
     /**
@@ -101,7 +184,7 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
      */
     @Override
     public String getDeleteString(String table) {
-        return null;
+        return "DELETE FROM "+ table +" WHERE name = ?;";
     }
 
     /**
@@ -112,7 +195,7 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
      */
     @Override
     public String getUpdateString(String table) {
-        return null;
+        return "UPDATE "+ table +" SET name = ?, url = ?, synopsis = ?, episodes = ?, score = ? WHERE name = ?;";
     }
 
     /**
@@ -123,7 +206,7 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
      */
     @Override
     public String getInsertString(String table) {
-        return null;
+        return "INSERT INTO "+ table + " (name, url, synopsis, episodes, score) VALUES (?, ?, ?, ?, ?);";
     }
 
     /**
