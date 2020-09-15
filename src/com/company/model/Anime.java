@@ -13,6 +13,9 @@ package com.company.model;
  *  - added getters and setters
  *  - added constructor
  *
+ * Version 1.1
+ *  - added "getAll" that prints all variables
+ *
  */
 public class Anime {
     private String name;
@@ -67,5 +70,13 @@ public class Anime {
 
     public void setScore(float score) {
         this.score = score;
+    }
+
+    public void getAll(){
+        System.out.println(name);
+        System.out.println(url);
+        System.out.println(synopsis);
+        System.out.println(episodes);
+        System.out.println(score);
     }
 }
