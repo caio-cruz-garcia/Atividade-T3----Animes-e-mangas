@@ -20,10 +20,13 @@ import java.util.List;
  *      - method read commented out - Unused
  *      - method update commented out - Unused
  *      - method delete commented out - Unused
+ *
+ * Version 1.3
+ *      - Converted get() to return only what it gets
  */
 
-public interface CRUD<T>{
-    List<T> get(String condition) throws Exception;
+public interface CRUD{
+    String get(String condition) throws Exception;
 //    List<T> getAll();
 //    String create(T t);
 //    String read(T t);
