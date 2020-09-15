@@ -34,7 +34,7 @@ public class MangaList {
      * Add a Manga to the list
      * @param manga Manga to add
      */
-    public void addAnime(Manga manga){
+    public void addManga(Manga manga){
         this.mangas.add(manga);
     }
 
