@@ -29,7 +29,7 @@ public class APITests {
     }
 
     public static void main(String[] args) throws Exception {
-        String theUrl ="https://api.jikan.moe/v3/search/anime?q=xxxHOLiC%20kei1";
+        String theUrl ="https://api.jikan.moe/v3/search/anime?q=hellgirl"; //%20kei1";
 //        String theUrl ="https://api.jikan.moe/v3/search/manga?q=berserk";
         try {
             String output = apiTest(theUrl);

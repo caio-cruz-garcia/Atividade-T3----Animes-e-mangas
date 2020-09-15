@@ -20,7 +20,7 @@ public class APIToSQL {
     // Once done, it'll add to the table.
 
     public static void main(String[] args) {
-        String goodAnime = "xxxHOLiC";
+        String goodAnime = "hellgirl";
 
         AnimeDAO animeDAO = new AnimeDAO();
         List<Anime> animeList = (animeDAO.get("name LIKE '%" + goodAnime + "%'" ));
@@ -38,8 +38,9 @@ public class APIToSQL {
 
         } else {
             System.out.println("Not found in database. Moving to API call");
-            //animeList = animeCRUD.getByName(goodAnime);
-            //Anime anime = selectOne(animeList);
+            animeList = animeCRUD.getByName(goodAnime);
+            Anime anime = selectOne(animeList);
+            anime.getAll();
             //animeDAO.create(anime);
         }
 
