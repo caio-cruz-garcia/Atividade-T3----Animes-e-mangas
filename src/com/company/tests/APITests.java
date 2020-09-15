@@ -43,6 +43,7 @@ public class APITests {
                 System.out.println("synopsis.: " + manga.getSynopsis());
                 System.out.println("chapters.: " + manga.getChapters());
                 System.out.println("volumes.: " + manga.getVolumes());
+                System.out.println("type.: " + manga.getTypesString());
                 System.out.println("score.: " + manga.getScore());
 
             }
