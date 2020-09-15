@@ -36,7 +36,7 @@ public class AnimeList {
 
     /**
      * Add a anime to the list
-     * @param Anime Anime to add
+     * @param anime Anime to add
      */
     public void addAnime(Anime anime){
         this.animes.add(anime);

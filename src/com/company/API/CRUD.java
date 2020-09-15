@@ -7,13 +7,19 @@ import java.util.List;
  * <p>
  * @version 1.0
  * @since 2020-09-14
+ *
+ * Version 1.1
+ *      - method create changed to String
+ *      - method read changed to String
+ *      - method update changed to String
+ *      - method delete changed to String
  */
 
 public interface CRUD<T>{
     List<T> get(String condition);
     List<T> getAll();
-    void create(T t);
-    void read(T t);
-    void update(T t);
-    void delete(T t);
+    String create(T t);
+    String read(T t);
+    String update(T t);
+    String delete(T t);
 }
