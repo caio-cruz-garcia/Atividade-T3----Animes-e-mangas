@@ -12,10 +12,11 @@ import java.util.List;
  * Made to parse the json info as an manga list
  * <p>
  * @version 1.0
- * @since 2020-09-14
+ * @since 2020-09-15
  *
  * Version 1.0
  *  - added parseJson(string), returns mangalist
+ *  - added MangaTypesParser
  */
 
 public class MangaParser {
@@ -31,6 +32,7 @@ public class MangaParser {
                     ((JSONObject)manga).getString("synopsis"),
                     ((JSONObject)manga).getInt("chapters"),
                     ((JSONObject)manga).getInt("volumes"),
+                    MangaTypesParser.toTypes(((JSONObject)manga).getString("type")),
                     ((JSONObject)manga).getFloat("score")
             ));
         }
