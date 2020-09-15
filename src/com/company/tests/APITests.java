@@ -1,7 +1,9 @@
 package com.company.tests;
 
 import com.company.Parser.AnimeParser;
+import com.company.Parser.MangaParser;
 import com.company.model.Anime;
+import com.company.model.Manga;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -27,11 +29,13 @@ public class APITests {
     }
 
     public static void main(String[] args) throws Exception {
-        String theUrl ="https://api.jikan.moe/v3/search/anime?q=berserk&page=1";
+//        String theUrl ="https://api.jikan.moe/v3/search/anime?q=berserk&page=1";
+        String theUrl ="https://api.jikan.moe/v3/search/manga?q=berserk";
         try {
             String output = apiTest(theUrl);
-            for (Anime anime: AnimeParser.parseJson(output)) {
-                System.out.println("Anime.:" + anime.getName());
+//            for (Anime anime: AnimeParser.parseJson(output)) {
+            for (Manga manga: MangaParser.parseJson(output)) {
+                System.out.println("Anime.:" + manga.getName());
             }
         } catch (Exception exception) {
             exception.printStackTrace();

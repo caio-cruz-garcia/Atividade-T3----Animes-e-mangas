@@ -30,7 +30,7 @@ public class MangaParser {
                     ((JSONObject)manga).getString("image_url"),
                     ((JSONObject)manga).getString("synopsis"),
                     ((JSONObject)manga).getInt("chapters"),
-                    ((JSONObject)manga).getInt("episodes"),
+                    ((JSONObject)manga).getInt("volumes"),
                     ((JSONObject)manga).getFloat("score")
             ));
         }
