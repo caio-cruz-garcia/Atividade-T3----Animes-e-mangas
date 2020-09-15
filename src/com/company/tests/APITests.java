@@ -34,8 +34,17 @@ public class APITests {
         try {
             String output = apiTest(theUrl);
 //            for (Anime anime: AnimeParser.parseJson(output)) {
+
             for (Manga manga: MangaParser.parseJson(output)) {
-                System.out.println("Anime.:" + manga.getName());
+                System.out.println("-----------------------------");
+//                System.out.println("Anime.:" + manga.getName());
+                System.out.println("Manga.: " + manga.getName());
+                System.out.println("URL.: " + manga.getUrl());
+                System.out.println("synopsis.: " + manga.getSynopsis());
+                System.out.println("chapters.: " + manga.getChapters());
+                System.out.println("volumes.: " + manga.getVolumes());
+                System.out.println("score.: " + manga.getScore());
+
             }
         } catch (Exception exception) {
             exception.printStackTrace();

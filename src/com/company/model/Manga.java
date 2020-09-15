@@ -1,10 +1,12 @@
 package com.company.model;
 
+import com.company.enums.MangaTypes;
+
 /**
  * <h1>class Manga</h1>
  * The class used to represent the Manga.
  *
- * @version 1.0
+ * @version 1.1
  * @since 2020-09-14
  *
  * Version 1.0
@@ -13,6 +15,9 @@ package com.company.model;
  *  - added getters and setters
  *  - added constructor
  *
+ * Version 1.1
+ *  - Added enum MangaTypes for the class
+ *  - Added getter and setters for enum MangaTypes
  */
 
 public class Manga {
@@ -21,14 +26,16 @@ public class Manga {
     private String synopsis;
     private int chapters;
     private int volumes;
+    private MangaTypes types;
     private float score;
 
-    public Manga(String name, String url, String synopsis, int chapters, int volumes, float score) {
+    public Manga(String name, String url, String synopsis, int chapters, int volumes,  MangaTypes types, float score) {
         this.name = name;
         this.url = url;
         this.synopsis = synopsis;
         this.chapters = chapters;
         this.volumes = volumes;
+        this.types = types;
         this.score = score;
     }
 
@@ -70,6 +77,18 @@ public class Manga {
 
     public void setVolumes(int volumes) {
         this.volumes = volumes;
+    }
+
+    public MangaTypes getTypes() {
+        return types;
+    }
+
+    public String getTypesString() {
+        return ""+types;
+    }
+
+    public void setTypes(MangaTypes types) {
+        this.types = types;
     }
 
     public float getScore() {
