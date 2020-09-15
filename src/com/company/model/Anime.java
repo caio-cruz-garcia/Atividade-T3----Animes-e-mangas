@@ -73,10 +73,10 @@ public class Anime {
     }
 
     public void getAll(){
-        System.out.println(name);
-        System.out.println(url);
-        System.out.println(synopsis);
-        System.out.println(episodes);
-        System.out.println(score);
+        System.out.println("Title.:" + name);
+        System.out.println("Poster.:" + url);
+        System.out.println("Synopsis.:" + synopsis);
+        System.out.println("Episodes.:" + episodes);
+        System.out.println("Score.:" + score);
     }
 }
