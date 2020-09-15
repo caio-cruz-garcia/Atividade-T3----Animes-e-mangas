@@ -21,10 +21,10 @@ import java.util.List;
 public class MangaParser {
     public static List<Manga> parseJson(String json){
         JSONObject retorno = new JSONObject(json);
-        JSONArray animesJson = retorno.getJSONArray("results");
+        JSONArray mangasJson = retorno.getJSONArray("results");
         List<Manga> mangaList = new ArrayList<>();
         for (Object manga :
-                animesJson) {
+                mangasJson) {
             mangaList.add(new Manga(
                     ((JSONObject)manga).getString("title"),
                     ((JSONObject)manga).getString("image_url"),
