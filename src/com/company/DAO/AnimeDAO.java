@@ -14,7 +14,6 @@ import java.util.List;
  *     Version 1.0
  *     - Implemented DAO<Anime> and DAOFields
  *     - Added Constructor
- *     - Not sure, however, about the tables.
  *     - Updated method getSelectConditionalString()
  *     - Updated method getSelectAllString()
  *     - Updated method getTableName()
