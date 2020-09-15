@@ -27,7 +27,7 @@ public class APITests {
     }
 
     public static void main(String[] args) throws Exception {
-        String theUrl ="https://api.jikan.moe/v3/search/anime?q=Fate/Zero&page=1";
+        String theUrl ="https://api.jikan.moe/v3/search/anime?q=berserk&page=1";
         try {
             String output = apiTest(theUrl);
             for (Anime anime: AnimeParser.parseJson(output)) {
