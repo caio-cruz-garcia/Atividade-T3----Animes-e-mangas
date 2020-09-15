@@ -29,13 +29,17 @@ import java.util.List;
  *     - Updated method getUpdateString()
  *     - Updated method getInsertString()
  *
+ *     Version 1.2
+ *     - Changed location of AnimeManga.db
+ *     - updated get()'s catch output
  *
- * @version 1.1
+ *
+ * @version 1.2
  * @since 2020-09-15
  */
 public class AnimeDAO implements DAO<Anime>, DAOFields {
     private Connection connection;
-    private String myDBConnectionString = "jdbc:sqlite:localdb/AnimeManga.db";
+    private String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
 
     public AnimeDAO() {
         try {
@@ -66,7 +70,8 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
             }
             result.close();
         }catch (Exception e){
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("Error - Either wrong syntax or not in database");
         }
         return animeList.getAnimes();
     }
