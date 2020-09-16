@@ -1,3 +1,7 @@
+First one.:
 CREATE TABLE anime (mal_id INTEGER PRIMARY KEY, name TEXT, url TEXT, synopsis TEXT, episodes INTEGER, score FLOAT)
-
 CREATE TABLE manga (mal_id INTEGER PRIMARY KEY, name TEXT, url TEXT, synopsis TEXT, chapters INTEGER, volumes INTEGER, score FLOAT)
+
+Second (Currently used).:
+CREATE TABLE anime (name TEXT PRIMARY KEY, url TEXT, synopsis TEXT, episodes INTEGER, score FLOAT)
+CREATE TABLE manga (name TEXT PRIMARY KEY, url TEXT, synopsis TEXT, chapters INTEGER, volumes INTEGER, types TEXT, score FLOAT)

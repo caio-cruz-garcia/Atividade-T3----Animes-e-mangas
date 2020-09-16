@@ -5,14 +5,15 @@ import java.util.List;
 
 
 /**
- * <h1>Class AnimeList</h1>
  * List for anime
- * <p>
- * <br>
- *     Version 1.0
+ * @version 1.1
+ * @since 2020-09-14
+ *
+ */
+/* Version 1.0
  *     - Created class
  *
- *     Version 1.1
+ * Version 1.1
  *     - Added private list
  *     - Added method AnimeList
  *     - Added constructor
@@ -20,8 +21,7 @@ import java.util.List;
  *     - Added method getAnimes
  *     - Added toString
  *
- * @version 1.1
- * @since 2020-09-14
+
  */
 public class AnimeList {
     private List<Anime> animes;

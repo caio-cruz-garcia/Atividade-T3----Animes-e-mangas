@@ -2,13 +2,13 @@ package com.company.DAO;
 import java.util.List;
 
 /**
- * <h1>Interface DAO</h1>
  * Interface to be the basis of how sql commands are to be made.
  * <p>
  * @version 1.1
  * @since 2020-09-14
- *
- * Version 1.1
+ */
+
+/* Version 1.1
  *      - changed create to int
  *      - changed update to int
  *      - changed delete to int
