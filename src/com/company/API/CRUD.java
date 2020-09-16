@@ -5,7 +5,7 @@ import java.util.List;
  * <h1>Interface CRUD</h1>
  * Interface to be the basis of how API commands are to be made.
  * <p>
- * @version 1.0
+ * @version 1.3
  * @since 2020-09-14
  *
  * Version 1.1

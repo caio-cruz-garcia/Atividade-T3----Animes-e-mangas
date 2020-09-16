@@ -1,8 +1,6 @@
 package com.company.DAO;
 
 import com.company.Parser.MangaTypesParser;
-import com.company.model.Anime;
-import com.company.model.AnimeList;
 import com.company.model.Manga;
 import com.company.model.MangaList;
 import org.json.JSONObject;

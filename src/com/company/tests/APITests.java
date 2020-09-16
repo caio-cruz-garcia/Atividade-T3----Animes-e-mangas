@@ -11,6 +11,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
+/**
+ * <h1> class APITests (TEST CLASS)</h1>
+ * Class purely made for testing API calls and learning about it's outputs.
+ * Should not be considered in the final product.
+ */
 public class APITests {
     public static String apiTest(String request_url) throws Exception{
         HttpClient client = HttpClient.newBuilder()

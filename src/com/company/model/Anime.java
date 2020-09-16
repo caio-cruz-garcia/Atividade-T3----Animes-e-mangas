@@ -4,7 +4,7 @@ package com.company.model;
  * <h1>class Anime</h1>
  * The class used to represent the anime.
  *
- * @version 1.0
+ * @version 1.1
  * @since 2020-09-14
  *
  * Version 1.0

@@ -14,7 +14,8 @@ import java.util.Scanner;
 /**
  * <h1>class APIToSQL (TEST)</h1>
  * This here we'll simulate the attempt at gathering an API and inserting it on the SQL table.
- * Both animes and mangas
+ * Both animes and mangas.
+ * Should not be considered in the final product.
  */
 public class APIToSQL {
     // First, we'll attempt to simulate a request for looking up at the anime table for an anime called "xxxHOLiCxxx".
