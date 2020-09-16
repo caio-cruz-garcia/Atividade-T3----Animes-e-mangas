@@ -8,18 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <h1>class MangaParser</h1>
  * Made to parse the json info as an manga list
- * <p>
  * @version 1.0
  * @since 2020-09-15
- *
- * Version 1.0
- *  - added parseJson(string), returns mangalist
- *  - added MangaTypesParser
+ */
+
+/* Version 1.0
+ *      - added parseJson(string), returns mangalist
+ *      - added MangaTypesParser
  */
 
 public class MangaParser {
+
+    /**
+     * The method used to parse the manga info, obtained in the website, into a list of mangas
+     * @param json Takes JSON to convert
+     * @return a list of mangas
+     */
     public static List<Manga> parseJson(String json){
         JSONObject retorno = new JSONObject(json);
         JSONArray mangasJson = retorno.getJSONArray("results");

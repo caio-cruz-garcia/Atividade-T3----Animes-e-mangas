@@ -11,6 +11,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
+/**
+ * (TEST CLASS).
+ * Class purely made for testing API calls and learning about it's outputs.
+ * Should not be considered in the final product.
+ */
 public class APITests {
     public static String apiTest(String request_url) throws Exception{
         HttpClient client = HttpClient.newBuilder()
@@ -29,22 +34,26 @@ public class APITests {
     }
 
     public static void main(String[] args) throws Exception {
-//        String theUrl ="https://api.jikan.moe/v3/search/anime?q=berserk&page=1";
-        String theUrl ="https://api.jikan.moe/v3/search/manga?q=berserk";
+        String theUrl ="https://api.jikan.moe/v3/search/anime?q=hellgirl"; //%20kei1";
+//        String theUrl ="https://api.jikan.moe/v3/search/manga?q=berserk";
         try {
             String output = apiTest(theUrl);
-//            for (Anime anime: AnimeParser.parseJson(output)) {
+            for (Anime anime: AnimeParser.parseJson(output)) {
 
-            for (Manga manga: MangaParser.parseJson(output)) {
+//            for (Manga manga: MangaParser.parseJson(output)) {
                 System.out.println("-----------------------------");
-//                System.out.println("Anime.:" + manga.getName());
-                System.out.println("Manga.: " + manga.getName());
-                System.out.println("URL.: " + manga.getUrl());
-                System.out.println("synopsis.: " + manga.getSynopsis());
-                System.out.println("chapters.: " + manga.getChapters());
-                System.out.println("volumes.: " + manga.getVolumes());
-                System.out.println("type.: " + manga.getTypesString());
-                System.out.println("score.: " + manga.getScore());
+//                System.out.println("Manga.: " + manga.getName());
+//                System.out.println("URL.: " + manga.getUrl());
+//                System.out.println("synopsis.: " + manga.getSynopsis());
+//                System.out.println("chapters.: " + manga.getChapters());
+//                System.out.println("volumes.: " + manga.getVolumes());
+//                System.out.println("type.: " + manga.getTypesString());
+//                System.out.println("score.: " + manga.getScore());
+                System.out.println("Anime.:" + anime.getName());
+                System.out.println("URL.: " + anime.getUrl());
+                System.out.println("synopsis.: " + anime.getSynopsis());
+                System.out.println("volumes.: " + anime.getEpisodes());
+                System.out.println("score.: " + anime.getScore());
 
             }
         } catch (Exception exception) {

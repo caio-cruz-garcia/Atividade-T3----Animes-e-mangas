@@ -7,19 +7,20 @@ import java.sql.*;
 import java.util.List;
 
 /**
- * <h1>Class AnimeDAO</h1>
  * DAO for Anime. Contains a variety of methods made to make usage easier
- * <p>
- * <br>
- *     Version 1.0
+ * @version 1.2
+ * @since 2020-09-15
+ *
+ */
+
+/* Version 1.0
  *     - Implemented DAO<Anime> and DAOFields
  *     - Added Constructor
- *     - Not sure, however, about the tables.
  *     - Updated method getSelectConditionalString()
  *     - Updated method getSelectAllString()
  *     - Updated method getTableName()
  *
- *     Version 1.1
+ * Version 1.1
  *     - Updated method get()
  *     - Updated method getAll()
  *     - Updated method update()
@@ -29,14 +30,18 @@ import java.util.List;
  *     - Updated method getUpdateString()
  *     - Updated method getInsertString()
  *
+ * Version 1.2
+ *     - Changed location of AnimeManga.db
+ *     - updated get()'s catch output
  *
- * @version 1.1
- * @since 2020-09-15
  */
 public class AnimeDAO implements DAO<Anime>, DAOFields {
     private Connection connection;
-    private String myDBConnectionString = "jdbc:sqlite:localdb/AnimeManga.db";
+    private String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
 
+    /**
+     * Constructor. Attempts to establish a connection to the database. Since it's a local one, it shouldn't have much issue.
+     */
     public AnimeDAO() {
         try {
             connection = DriverManager.getConnection(myDBConnectionString);
@@ -46,7 +51,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method get()
      * Gets specific animes based on the condition given
      * @param condition Condition to look for
      */
@@ -66,14 +70,14 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
             }
             result.close();
         }catch (Exception e){
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("Error - Either wrong syntax or not in database");
         }
         return animeList.getAnimes();
     }
 
     /**
-     * method getAll()
-     * Gets all anime in the table and returns it as a list<Anime>
+     * Gets all anime in the table and returns it as a list(Anime)
      */
     @Override
     public List<Anime> getAll() {
@@ -97,7 +101,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method update()
      * Due to how the exercise works, it is not a requirement. Yet it'll be implemented for the tests
      * @param anime Anime to update
      * @return retorno as a boolean, 0 if failed, 1 if successful
@@ -123,7 +126,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method delete()
      * Due to how the exercise works, it is not a requirement. Yet it'll be implemented for the tests
      * @param anime Anime to delete
      */
@@ -143,7 +145,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method create()
      * Create a new entry in the local database for the chosen anime
      * @param anime Anime to create
      */
@@ -167,7 +168,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method getTableName()
      * Stores the table name
      * @return String
      */
@@ -177,7 +177,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method getDeleteString
      * Returns the string for deletion query.
      * @param table Takes table to write the string
      * @return Query string
@@ -188,7 +187,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method getUpdateString
      * Returns the string for update query.
      * @param table Takes table to write the string
      * @return Query string
@@ -199,7 +197,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method getInsertString
      * Returns the string for inserting, query.
      * @param table Takes table to write the string
      * @return Query string
@@ -210,7 +207,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method getSelectAllString
      * Returns string to get all entries in the table.
      * @param table Takes table to write the string
      * @return Query string
@@ -221,7 +217,6 @@ public class AnimeDAO implements DAO<Anime>, DAOFields {
     }
 
     /**
-     * method getSelectConditionalString
      * Returns string for conditional search.
      * @param table Takes table to write the string
      * @return Query string

@@ -1,8 +1,8 @@
 package com.company.enums;
 
 /**
- * <h1>Enum AnimeTypes</h1>
  * Known anime types. While not used for the Anime itself, it is used in the CRUD searches.
+ * @deprecated
  * @version 1.0
  * @since 2020-09-14
  */

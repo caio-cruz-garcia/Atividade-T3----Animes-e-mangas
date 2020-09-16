@@ -1,7 +1,6 @@
 package com.company.enums;
 
 /**
- * <h1>Enum MangaTypes</h1>
  * Known manga types
  * @version 1.0
  * @since 2020-09-14
