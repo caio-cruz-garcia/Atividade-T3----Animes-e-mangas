@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * <h1>class APIToSQL (TEST)</h1>
+ * (TEST).
  * This here we'll simulate the attempt at gathering an API and inserting it on the SQL table.
  * Both animes and mangas.
  * Should not be considered in the final product.

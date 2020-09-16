@@ -9,11 +9,14 @@ import java.sql.*;
 import java.util.List;
 
 /**
- * <h1> class MangaDAO </h1>
  * DAO for Manga. Contains a variety of methods made to make usage easier
- * <p>
- * <br>
- *     Version 1.0
+ *
+ * @version 1.0
+ * @since 2020-09-15
+ *
+ */
+
+/* Version 1.0
  *     - Implemented DAO<Manga> and DAOFields
  *     - Added Constructor
  *     - Updated method getSelectConditionalString()
@@ -29,9 +32,7 @@ import java.util.List;
  *     - Updated method getInsertString()
  *
  *
- *
- * @version 1.0
- * @since 2020-09-15
+
  */
 
 public class MangaDAO implements DAO<Manga>, DAOFields{
@@ -47,7 +48,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method get()
      * Gets specific mangas based on the condition given
      * @param condition Condition to look for
      */
@@ -77,8 +77,7 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method getAll()
-     * Gets all manga in the table and returns it as a list\<manga\>
+     * Gets all manga in the table and returns it as a list(manga)
      */
     @Override
     public List<Manga> getAll() {
@@ -105,7 +104,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method update()
      * Due to how the exercise works, it is not a requirement. Yet it'll be implemented for the tests
      * @param manga Manga to update
      * @return retorno as a boolean, 0 if failed, 1 if successful
@@ -134,7 +132,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method delete()
      * Due to how the exercise works, it is not a requirement. Yet it'll be implemented for the tests
      * @param manga manga to delete
      */
@@ -154,7 +151,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method create()
      * Create a new entry in the local database for the chosen anime
      * @param manga Manga to create
      */
@@ -180,7 +176,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method getTableName()
      * Stores the table name
      * @return String
      */
@@ -190,7 +185,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method getDeleteString
      * Returns the string for deletion query.
      * @param table Takes table to write the string
      * @return Query string
@@ -201,7 +195,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method getUpdateString
      * Returns the string for update query.
      * @param table Takes table to write the string
      * @return Query string
@@ -212,7 +205,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method getInsertString
      * Returns the string for inserting, query.
      * @param table Takes table to write the string
      * @return Query string
@@ -223,7 +215,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method getSelectAllString
      * Returns string to get all entries in the table.
      * @param table Takes table to write the string
      * @return Query string
@@ -234,7 +225,6 @@ public class MangaDAO implements DAO<Manga>, DAOFields{
     }
 
     /**
-     * method getSelectConditionalString
      * Returns string for conditional search.
      * @param table Takes table to write the string
      * @return Query string

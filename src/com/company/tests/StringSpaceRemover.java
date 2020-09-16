@@ -3,7 +3,7 @@ package com.company.tests;
 import java.util.Scanner;
 
 /**
- * <h1> class StringSpaceRemove (TEST)</h1>
+ * (TEST).
  * Class created to test and understand the issue why the method spaceFixer was not working.
  * Should not be considered in the final product.
  */

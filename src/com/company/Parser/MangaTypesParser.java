@@ -3,11 +3,12 @@ package com.company.Parser;
 import com.company.enums.MangaTypes;
 
 /**
- * <h1>Class MangaTypesParser</h1>
  * Parses a string and returns the correct enum type.
  * @version 1.1
  * @since 2020-09-15
- *
+ */
+
+/*
  * Version 1.0
  *      - Added possible types
  *

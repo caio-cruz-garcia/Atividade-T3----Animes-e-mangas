@@ -11,12 +11,14 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * <h1>class Executor</h1>
  * The class where most of the code is run.
  *
  * @version 1.0
  * @since 2020-09-15
  *
+ */
+
+/*
  * Version 1.0
  *      - Created class Executor.
  *      - Added javadocs as comments
@@ -29,8 +31,6 @@ import java.util.Scanner;
  *      - Added method spaceFixer()
  *      - Added method selectOneManga()
  *      - Added method checkManga()
- *
- *
  */
 public class Executor {
     private AnimeDAO animeDAO = new AnimeDAO();
@@ -43,15 +43,13 @@ public class Executor {
 
     /**
      *  Constructor
-     *  Currently being unused?
      */
     public Executor() {
     }
 
     /**
-     * method spaceFixer
      * Takes string and, for every space, replace with %20.
-     * Url encoding is fun!
+     * Url encoding.
      * @param text Text to convert
      * @return Converted text
      */
@@ -61,7 +59,6 @@ public class Executor {
     }
 
     /**
-     * method selectOneAnime
      * Made for both SQL and API, where it will list all names found and ask you to select which one you want to select.
      * @param animeList Takes an animelist
      * @return Returns an anime.
@@ -87,7 +84,6 @@ public class Executor {
     }
 
     /**
-     * method selectOneManga
      * Made for both SQL and API, where it will list all names found and ask you to select which one you want to select.
      * @param mangaList Takes an mangaList
      * @return Returns an anime.
@@ -113,9 +109,8 @@ public class Executor {
     }
 
     /**
-     * method checkAnime
      * Takes the chance to check if it's in the database and output the data. If it's there, just write it.
-     * Else, swap all spaces with %20 and make API request. Then immediately add it to the databank and print the data obtained
+     * Else, swap all spaces with %20 and make API request. Then immediately add it to the databank and print the data obtained.
      */
     public void checkAnime(){
         Anime anime;
@@ -137,9 +132,8 @@ public class Executor {
     }
 
     /**
-     * method checkManga
      * Takes the chance to check if it's in the database and output the data. If it's there, just write it.
-     * Else, swap all spaces with %20 and make API request. Then immediately add it to the databank and print the data obtained
+     * Else, swap all spaces with %20 and make API request. Then immediately add it to the databank and print the data obtained.
      */
     public void checkManga(){
         Manga manga;
@@ -161,7 +155,6 @@ public class Executor {
     }
 
     /**
-     * method printAllAnimes
      * Takes all animes from the database and print them.
      */
     public void printAllAnimes(){
@@ -178,7 +171,6 @@ public class Executor {
     }
 
     /**
-     * method printAllMangas
      * Takes all mangas from the database and print them.
      */
     public void printAllMangas(){
@@ -196,8 +188,7 @@ public class Executor {
 
 
     /**
-     * method execute
-     * Main method where it takes the user input and display accordingly
+     * Main method where it takes the user input and display accordingly.
      */
     public void execute(){
         int exit = 0;
@@ -230,6 +221,9 @@ public class Executor {
 
     }
 
+    /**
+     * Contains all current possible choices.
+     */
     public void menu(){
         System.out.println("Please make your choice.\n" +
                 "1 - Manga.\n" +

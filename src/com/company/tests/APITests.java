@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 
 /**
- * <h1> class APITests (TEST CLASS)</h1>
+ * (TEST CLASS).
  * Class purely made for testing API calls and learning about it's outputs.
  * Should not be considered in the final product.
  */

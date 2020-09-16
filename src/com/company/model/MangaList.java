@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <h1>Class MangaList</h1>
  * List for manga.
- * Manga > Anime (sub) > Anime (Dub)
- * <p>
- * <br>
- *     Version 1.0
+ * @version 1.0
+ * @since 2020-09-15
+ */
+/* Version 1.0
  *     - Created class
  *
- *     Version 1.1
+ * Version 1.1
  *     - Added private list
  *     - Added method mangaList
  *     - Added constructor
@@ -20,12 +19,14 @@ import java.util.List;
  *     - Added method getMangas
  *     - Added toString
  *
- * @version 1.0
- * @since 2020-09-15
+
  */
 public class MangaList {
     private List<Manga> mangas;
 
+    /**
+     * initialize an arraylist for the class
+     */
     public MangaList() {
         this.mangas = new ArrayList<>();
     }
