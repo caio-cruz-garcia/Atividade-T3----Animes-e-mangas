@@ -41,7 +41,10 @@ public class Executor {
     private static MangaCRUD mangaCRUD = new MangaCRUD();
     private static Scanner scanner = new Scanner(System.in);
 
-
+    /**
+     *  Constructor
+     *  Currently being unused?
+     */
     public Executor() {
     }
 
@@ -170,6 +173,7 @@ public class Executor {
             anime.getAll();
 
         }
+        System.out.println("-------------------------------------------\n");
 
     }
 
@@ -186,6 +190,7 @@ public class Executor {
             manga.getAll();
 
         }
+        System.out.println("-------------------------------------------\n");
 
     }
 
@@ -218,7 +223,7 @@ public class Executor {
                     exit = 1;
                     break;
                 default:
-                    System.out.println("Input not recognize.");
+                    System.out.println("Input not recognized.");
 
             }
         }
