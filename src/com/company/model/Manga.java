@@ -5,7 +5,7 @@ import com.company.enums.MangaTypes;
 /**
  * The class used to represent the Manga.
  *
- * @version 1.2
+ * @version 1.3
  * @since 2020-09-14
  *
  */
@@ -21,6 +21,9 @@ import com.company.enums.MangaTypes;
  *
  * Version 1.2
  *      - Added getAll()
+ *
+ * Version 1.3
+ *      - Added "volumes" to getAll()
  */
 
 public class Manga {
@@ -179,6 +182,7 @@ public class Manga {
         System.out.println("Poster.: " + url);
         System.out.println("Synopsis.: " + synopsis);
         System.out.println("Chapters.: " + chapters);
+        System.out.println("Volumes.: " + volumes);
         System.out.println("Types.: " + types);
         System.out.println("Score.: " + score);
     }
