@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * The class where most of the code is run.
  *
- * @version 1.0
+ * @version 1.1
  * @since 2020-09-15
  *
  */
@@ -31,6 +31,14 @@ import java.util.Scanner;
  *      - Added method spaceFixer()
  *      - Added method selectOneManga()
  *      - Added method checkManga()
+ *
+ * Version 1.1
+ *      - Fixed method selectOneAnime and selectOneManga
+ *          |- if condition was considering the max size of the list while input has to be less or equal than the size.
+ *          | However, since the list is always bigger than 0 and pos starts at 0, changed the condition to now be
+ *          | (choice <= list.size() -1)
+ *          | - Also added a "System.out.println("-------------------------------------------\n");" to split the entries
+ *
  */
 public class Executor {
     private AnimeDAO animeDAO = new AnimeDAO();
@@ -73,7 +81,7 @@ public class Executor {
         while (exit == 0){
             System.out.println("Please select one of the above.:");
             int choice = Integer.parseInt(scanner.nextLine());
-            if (choice <= animeList.size()){
+            if (choice <= animeList.size() - 1){
                 exit = 1;
                 return animeList.get(choice);
             } else {
@@ -98,7 +106,7 @@ public class Executor {
         while (exit == 0){
             System.out.println("Please select one of the above.:");
             int choice = Integer.parseInt(scanner.nextLine());
-            if (choice <= mangaList.size()){
+            if (choice <= mangaList.size() - 1){
                 exit = 1;
                 return mangaList.get(choice);
             } else {
@@ -128,7 +136,9 @@ public class Executor {
             System.out.println("Adding to databank... Please wait...");
             animeDAO.create(anime);
         }
+        System.out.println("-------------------------------------------\n");
         anime.getAll();
+        System.out.println("-------------------------------------------\n");
     }
 
     /**
@@ -151,7 +161,9 @@ public class Executor {
             System.out.println("Adding to databank... Please wait...");
             mangaDAO.create(manga);
         }
+        System.out.println("-------------------------------------------\n");
         manga.getAll();
+        System.out.println("-------------------------------------------\n");
     }
 
     /**
