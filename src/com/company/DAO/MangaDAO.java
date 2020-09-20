@@ -3,7 +3,6 @@ package com.company.DAO;
 import com.company.Parser.MangaTypesParser;
 import com.company.model.Manga;
 import com.company.model.MangaList;
-import org.json.JSONObject;
 
 import java.sql.*;
 import java.util.List;
@@ -37,10 +36,10 @@ import java.util.List;
 
 public class MangaDAO implements DAO<Manga>, DAOFields{
     private Connection connection;
-    private String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
 
     public MangaDAO() {
         try {
+            String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
             connection = DriverManager.getConnection(myDBConnectionString);
         } catch (SQLException throwables) {
             throwables.printStackTrace();

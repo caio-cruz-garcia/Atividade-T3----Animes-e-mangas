@@ -103,23 +103,20 @@ public class APIToSQL {
      */
 
     public static Manga selectOne(List<Manga> mangaList){
-        int exit = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please select one.:");
         for (int i = 0; i < mangaList.size(); i++) {
             System.out.println(i + " - " + mangaList.get(i).getName());
         }
 
-        while (exit == 0){
+        while (true){
             int choice = Integer.parseInt(scanner.next());
             if (choice <= mangaList.size()){
-                exit = 1;
                 return mangaList.get(choice);
             } else {
                 System.out.println("Please input a valid choice");
             }
         }
-        return null;
     }
 
 

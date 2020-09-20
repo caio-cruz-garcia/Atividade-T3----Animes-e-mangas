@@ -1,7 +1,7 @@
 package com.company.DAO;
+
 import com.company.model.Anime;
 import com.company.model.AnimeList;
-import com.sun.source.tree.BreakTree;
 
 import java.sql.*;
 import java.util.List;
@@ -37,13 +37,13 @@ import java.util.List;
  */
 public class AnimeDAO implements DAO<Anime>, DAOFields {
     private Connection connection;
-    private String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
 
     /**
      * Constructor. Attempts to establish a connection to the database. Since it's a local one, it shouldn't have much issue.
      */
     public AnimeDAO() {
         try {
+            String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
             connection = DriverManager.getConnection(myDBConnectionString);
         } catch (SQLException throwables) {
             throwables.printStackTrace();

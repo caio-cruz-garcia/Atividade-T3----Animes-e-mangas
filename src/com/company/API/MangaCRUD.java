@@ -69,8 +69,7 @@ public class MangaCRUD implements CRUD, CRUDFields<Manga> {
     @Override
     public List<Manga> getByName(String name) {
         try {
-            List<Manga> output = MangaParser.parseJson(get(getLink() + "?q=" + name));
-            return output;
+            return MangaParser.parseJson(get(getLink() + "?q=" + name));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -86,8 +85,7 @@ public class MangaCRUD implements CRUD, CRUDFields<Manga> {
     @Override
     public List<Manga> getByGenre(String name, String genre) {
         try {
-            List<Manga> output = MangaParser.parseJson(get(getLink() + "?q=" + name + "?genre=" + genre));
-            return output;
+            return MangaParser.parseJson(get(getLink() + "?q=" + name + "?genre=" + genre));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -103,8 +101,7 @@ public class MangaCRUD implements CRUD, CRUDFields<Manga> {
     @Override
     public List<Manga> getByType(String name, String type) {
         try {
-            List<Manga> output = MangaParser.parseJson(get(getLink() + "?q=" + name + "?type=" + type));
-            return output;
+            return MangaParser.parseJson(get(getLink() + "?q=" + name + "?type=" + type));
         } catch (Exception exception) {
             exception.printStackTrace();
         }

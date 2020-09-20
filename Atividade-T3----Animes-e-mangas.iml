@@ -8,7 +8,26 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="json-20200518" level="project" />
-    <orderEntry type="library" name="jflex-full-1.8.2" level="project" />
+    <orderEntry type="library" exported="" name="jflex-full-1.8.2" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.27.2.1" level="project" />
+    <orderEntry type="library" exported="" name="src" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/Software Caio/3 ano de comp/pdf da aula do zanini/json-20200518.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/Software Caio/3 ano de comp/pdf da aula do zanini/sqlite-jdbc-3.27.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
