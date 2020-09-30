@@ -1,14 +1,13 @@
 package com.company.DAO;
 import com.company.model.Anime;
 import com.company.model.AnimeList;
-import com.sun.source.tree.BreakTree;
 
 import java.sql.*;
 import java.util.List;
 
 /**
  * DAO for Anime. Contains a variety of methods made to make usage easier
- * @version 1.2
+ * @version 1.3
  * @since 2020-09-15
  *
  */
@@ -34,16 +33,21 @@ import java.util.List;
  *     - Changed location of AnimeManga.db
  *     - updated get()'s catch output
  *
+ * Version 1.3
+ *     - Removed "import com.sun.source.tree.BreakTree;" - Unused
+ *     - Removed "private String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";"
+ *          - Moved to constructor instead
+ *
  */
 public class AnimeDAO implements DAO<Anime>, DAOFields {
     private Connection connection;
-    private String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
 
     /**
      * Constructor. Attempts to establish a connection to the database. Since it's a local one, it shouldn't have much issue.
      */
     public AnimeDAO() {
         try {
+            String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
             connection = DriverManager.getConnection(myDBConnectionString);
         } catch (SQLException throwables) {
             throwables.printStackTrace();

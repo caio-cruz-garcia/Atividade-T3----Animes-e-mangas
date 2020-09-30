@@ -12,8 +12,8 @@ import java.time.Duration;
 import java.util.List;
 
 /**
- * CRUD for Anime. Contains a variety of methods made to make usage easier
- * @version 1.0
+ * CRUD for Manga. Contains a variety of methods made to make usage easier
+ * @version 1.1
  * @since 2020-09-15
  */
 
@@ -28,6 +28,10 @@ import java.util.List;
  *     - method getByType() updated
  *
  *
+ * Version 1.1
+ *     - Removed "import com.sun.source.tree.BreakTree;" - Unused
+ *     - Removed "private String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";"
+ *          - Moved to constructor instead
 
  */
 public class MangaCRUD implements CRUD, CRUDFields<Manga> {
@@ -69,8 +73,7 @@ public class MangaCRUD implements CRUD, CRUDFields<Manga> {
     @Override
     public List<Manga> getByName(String name) {
         try {
-            List<Manga> output = MangaParser.parseJson(get(getLink() + "?q=" + name));
-            return output;
+            return MangaParser.parseJson(get(getLink() + "?q=" + name));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -86,8 +89,7 @@ public class MangaCRUD implements CRUD, CRUDFields<Manga> {
     @Override
     public List<Manga> getByGenre(String name, String genre) {
         try {
-            List<Manga> output = MangaParser.parseJson(get(getLink() + "?q=" + name + "?genre=" + genre));
-            return output;
+            return MangaParser.parseJson(get(getLink() + "?q=" + name + "?genre=" + genre));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -103,8 +105,7 @@ public class MangaCRUD implements CRUD, CRUDFields<Manga> {
     @Override
     public List<Manga> getByType(String name, String type) {
         try {
-            List<Manga> output = MangaParser.parseJson(get(getLink() + "?q=" + name + "?type=" + type));
-            return output;
+            return MangaParser.parseJson(get(getLink() + "?q=" + name + "?type=" + type));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
