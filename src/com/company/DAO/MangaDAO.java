@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * DAO for Manga. Contains a variety of methods made to make usage easier
  *
- * @version 1.0
+ * @version 1.1
  * @since 2020-09-15
  *
  */
@@ -31,16 +31,23 @@ import java.util.List;
  *     - Updated method getUpdateString()
  *     - Updated method getInsertString()
  *
+ * Version 1.1
+ *     - method getByName() updated
+ *          - Shortened
+ *     - method getByGenre() updated
+ *          - Shortened
+ *     - method getByType() updated
+ *          - Shortened
  *
 
  */
 
 public class MangaDAO implements DAO<Manga>, DAOFields{
     private Connection connection;
-    private String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
 
     public MangaDAO() {
         try {
+            String myDBConnectionString = "jdbc:sqlite:AnimeManga.db";
             connection = DriverManager.getConnection(myDBConnectionString);
         } catch (SQLException throwables) {
             throwables.printStackTrace();

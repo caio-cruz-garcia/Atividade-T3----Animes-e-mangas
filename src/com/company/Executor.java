@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * The class where most of the code is run.
  *
- * @version 1.1
+ * @version 1.2
  * @since 2020-09-15
  *
  */
@@ -39,13 +39,20 @@ import java.util.Scanner;
  *          | (choice <= list.size() -1)
  *          | - Also added a "System.out.println("-------------------------------------------\n");" to split the entries
  *
+ * Version 1.2
+ *      - Removed the following var declaration.:
+ *          | - private static List<Anime> animeList;
+ *          |   |- Now declared inside method checkAnime()
+ *          | - private static List<Manga> mangaList;
+ *          |   |- Now declared inside method checkManga()
+ *      - method selectOneAnime() updated - Shortened for efficiency
+ *      - method selectOneManga() updated - Shortened for efficiency
  */
+
 public class Executor {
     private AnimeDAO animeDAO = new AnimeDAO();
-    private static List<Anime> animeList;
     private static AnimeCRUD animeCRUD = new AnimeCRUD();
     private MangaDAO mangaDAO = new MangaDAO();
-    private static List<Manga> mangaList;
     private static MangaCRUD mangaCRUD = new MangaCRUD();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -72,23 +79,20 @@ public class Executor {
      * @return Returns an anime.
      */
     public static Anime selectOneAnime(List<Anime> animeList){
-        int exit = 0;
         System.out.println("Listing all animes...");
         for (int i = 0; i < animeList.size(); i++) {
             System.out.println(i + " - " + animeList.get(i).getName());
         }
 
-        while (exit == 0){
+        while (true){
             System.out.println("Please select one of the above.:");
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice <= animeList.size() - 1){
-                exit = 1;
                 return animeList.get(choice);
             } else {
                 System.out.println("Please input a valid choice");
             }
         }
-        return null;
     }
 
     /**
@@ -97,23 +101,20 @@ public class Executor {
      * @return Returns an anime.
      */
     public static Manga selectOneManga(List<Manga> mangaList){
-        int exit = 0;
         System.out.println("Listing all animes...");
         for (int i = 0; i < mangaList.size(); i++) {
             System.out.println(i + " - " + mangaList.get(i).getName());
         }
 
-        while (exit == 0){
+        while (true){
             System.out.println("Please select one of the above.:");
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice <= mangaList.size() - 1){
-                exit = 1;
                 return mangaList.get(choice);
             } else {
                 System.out.println("Please input a valid choice");
             }
         }
-        return null;
     }
 
     /**
@@ -124,7 +125,7 @@ public class Executor {
         Anime anime;
         System.out.println("Please write the name of the anime.");
         String name = scanner.nextLine();
-        animeList = (animeDAO.get("name LIKE '%" + name + "%'" ));
+        List<Anime> animeList = (animeDAO.get("name LIKE '%" + name + "%'"));
         if (animeList.size() != 0 ){
             System.out.println("Found the following in the database.:");
             anime = selectOneAnime(animeList);
@@ -149,7 +150,7 @@ public class Executor {
         Manga manga;
         System.out.println("Please write the name of the manga.");
         String name = scanner.nextLine();
-        mangaList = (mangaDAO.get("name LIKE '%" + name + "%'" ));
+        List<Manga> mangaList = (mangaDAO.get("name LIKE '%" + name + "%'"));
         if (mangaList.size() != 0 ){
             System.out.println("Found the following in the database.:");
             manga = selectOneManga(mangaList);
@@ -244,8 +245,4 @@ public class Executor {
                 "4 - Show all animes.\n" +
                 "0 - Exit");
     }
-
-
-
-
 }

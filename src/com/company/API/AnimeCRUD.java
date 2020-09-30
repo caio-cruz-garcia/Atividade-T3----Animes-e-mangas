@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * CRUD for Anime. Contains a variety of methods made to make usage easier
- * @version 1.1
+ * @version 1.2
  * @since 2020-09-15
  *
  */
@@ -41,8 +41,14 @@ import java.util.List;
  *     - method getByGenre() updated
  *     - method getByType() updated
  *
+ * Version 1.2
+ *     - method getByName() updated
+ *          - Shortened
+ *     - method getByGenre() updated
+ *          - Shortened
+ *     - method getByType() updated
+ *          - Shortened
  *
-
  */
 public class AnimeCRUD implements CRUD, CRUDFields<Anime> {
 
@@ -83,8 +89,7 @@ public class AnimeCRUD implements CRUD, CRUDFields<Anime> {
     @Override
     public List<Anime> getByName(String name) {
         try {
-            List<Anime> output = AnimeParser.parseJson(get(getLink() + "?q=" + name));
-            return output;
+            return AnimeParser.parseJson(get(getLink() + "?q=" + name));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -100,8 +105,7 @@ public class AnimeCRUD implements CRUD, CRUDFields<Anime> {
     @Override
     public List<Anime> getByGenre(String name, String genre) {
         try {
-            List<Anime> output = AnimeParser.parseJson(get(getLink() + "?q=" + name + "?genre=" + genre));
-            return output;
+            return AnimeParser.parseJson(get(getLink() + "?q=" + name + "?genre=" + genre));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -117,8 +121,7 @@ public class AnimeCRUD implements CRUD, CRUDFields<Anime> {
     @Override
     public List<Anime> getByType(String name, String type) {
         try {
-            List<Anime> output = AnimeParser.parseJson(get(getLink() + "?q=" + name + "?type=" + type));
-            return output;
+            return AnimeParser.parseJson(get(getLink() + "?q=" + name + "?type=" + type));
         } catch (Exception exception) {
             exception.printStackTrace();
         }

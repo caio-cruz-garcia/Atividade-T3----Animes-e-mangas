@@ -29,11 +29,11 @@ public class APIToSQL {
         String goodManga = "berserk";
 
         AnimeDAO animeDAO = new AnimeDAO();
-        List<Anime> animeList = (animeDAO.get("name LIKE '%" + goodAnime + "%'" ));
+        List<Anime> animeList = (animeDAO.get("name LIKE '%" + goodAnime + "%'"));
         AnimeCRUD animeCRUD = new AnimeCRUD();
 
         MangaDAO mangaDAO = new MangaDAO();
-        List<Manga> mangaList = (mangaDAO.get("name LIKE '%" + goodManga + "%'" ));
+        List<Manga> mangaList = (mangaDAO.get("name LIKE '%" + goodManga + "%'"));
         MangaCRUD mangaCRUD = new MangaCRUD();
 
         /*
@@ -57,9 +57,9 @@ public class APIToSQL {
         }
 
          */
-        if (mangaList.size() != 0 ){
+        if (mangaList.size() != 0) {
             System.out.println("Found in database.");
-            for (Manga manga: mangaList) {
+            for (Manga manga : mangaList) {
                 System.out.println("--------------------------");
                 System.out.println("Manga.: " + manga.getName());
                 System.out.println("Image.: " + manga.getUrl());
@@ -102,25 +102,20 @@ public class APIToSQL {
 
      */
 
-    public static Manga selectOne(List<Manga> mangaList){
-        int exit = 0;
+    public static Manga selectOne(List<Manga> mangaList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please select one.:");
         for (int i = 0; i < mangaList.size(); i++) {
             System.out.println(i + " - " + mangaList.get(i).getName());
         }
 
-        while (exit == 0){
-            int choice = Integer.parseInt(scanner.next());
-            if (choice <= mangaList.size()){
-                exit = 1;
-                return mangaList.get(choice);
-            } else {
-                System.out.println("Please input a valid choice");
+        while (true){
+                int choice = Integer.parseInt(scanner.next());
+                if (choice <= mangaList.size()) {
+                    return mangaList.get(choice);
+                } else {
+                    System.out.println("Please input a valid choice");
+                }
             }
-        }
-        return null;
     }
-
-
 }
